@@ -1,0 +1,169 @@
+
+
+
+
+
+
+
+
+
+
+	//long long seq_find(T find) const {
+	//	for (size_t i = 0; i < length; i++) { //последовательно проходим по всем элементам массива
+	//		if (array[i] == find) {               //если искомое число найдено
+	//			return i;                       //возращаем его индекс
+	//		}
+	//	}
+	//	return -1;                              //если find не найден, возращаем -1
+	//}
+
+	//long long bin_find(size_t arr_size, size_t beg, T find) const {
+	//	unsigned md = (arr_size + beg) / 2;             //индекс элемента посередине
+	//	if (array[md] == find)                            //если элемент посередине - искомый
+	//		return md;                                  //то возращаем его индекс
+
+	//	if (md == arr_size || md == beg)
+	//		return -1;
+	//	if (array[md] > find) {                           //если элемент посередине больше искомого
+	//		return bin_find(md, beg, find);          //производим поиск от начала до середины просматриваемого отрезка
+	//	}
+	//	else {                                          //если ни одно из условий выше не выполнилось
+	//		return bin_find(arr_size, md, find);   //то производим поиск от середины до конца просматриваемого отрезка
+	//	}
+
+	//}
+
+
+
+	/////оператор присваивания копированием
+	//DynamicArray<T>& operator=(const DynamicArray<T>& arr) {
+	//	if (&arr != this) {
+	//		delete[] this->array;
+	//		this->length = arr.size();
+	//		this->capacity = length;
+	//		this->array = new T[capacity];
+	//		memcpy(array, arr.array, capacity * sizeof(T));
+	//	}
+	//	return *this;
+	//}
+
+	/////Конструктор перемещения
+	//DynamicArray(DynamicArray<T>&& arr) {
+	//	this->length = arr.size();
+	//	this->capacity = length;
+	//	this->array = arr.get_array();
+	//	arr.array = nullptr;
+	//}
+
+	/////оператор присваивания перемещением
+	//DynamicArray<T>& operator=(DynamicArray<T>&& arr)
+	//{
+	//	if (&arr != this) {
+	//		delete[] this->array;
+	//		this->length = arr.size();
+	//		this->capacity = length;
+	//		this->array = new T[capacity];
+	//		this->array = arr.array;
+	//		arr.array = nullptr;
+	//	}
+	//	return *this; // возвращаем текущий объект
+	//}
+
+	/////получение адреса массива
+	//T* get_array() {
+	//	return this->array;
+	//}
+	/////Перегрузка оператор обращения под индексу с изменением значение
+	//T& operator[](std::size_t idx) {
+	//	if (idx >= length) {
+	//		throw std::invalid_argument("Index is outside the array");
+	//	}
+	//	return array[idx];
+	//}
+	/////Перегрузка оператор обращения под индексу без изменения значения
+	//const T& operator[](std::size_t idx) const {
+	//	if (idx >= length) {
+	//		throw std::invalid_argument("Index is outside the array");
+	//	}
+	//	return array[idx];
+	//}
+	/////Возвращает размер массива
+	//size_t size() const {
+	//	return this->length;
+	//}
+
+	/////Изменение размера массива
+	/////length - задаваемая длина массива
+	///// Если длина массива увеличивается, то в качестве новых элементов массива ставятся нули
+	//void resize(std::size_t length) {
+	//	if (length == this->length) return;
+	//	std::size_t old_l = this->length;
+	//	this->length = length;
+	//	re_memory();
+
+	//}
+
+
+	///////Добавление элемента elem по индексу pos
+	////void add(T elem, size_t pos) {
+	////	if (pos >= length) {
+	////		throw std::out_of_range("Error: pos out of range\n");
+	////	}
+
+	////	if (length == capacity) { //если выделенная память уже заполнена 
+	////		re_memory();		  //то производится выделение новой памяти 
+	////	}
+
+	////	for (size_t i = length; i > pos; i--) { //сдвиг элементов после pos на одну позицию вправо
+	////		array[i] = array[i - 1];
+	////	}
+	////	array[pos] = elem;
+	////	this->length++;
+	////}
+
+
+
+
+
+	/////Проверка, явлвяется ли массив отсортированным
+	/////key - ключ, по которому происходит проверка ( если 1, то проверяется отсортированность по возрастанию, по убыванию если 0)
+	//bool is_sorted(unsigned char key = 1) const {
+	//	switch (key) {
+	//	case 0:
+	//		for (size_t i = 0; i < this->length - 1; i++) {
+	//			if (array[i] < array[i + 1]) {
+	//				return false;
+	//			}
+	//		};
+
+	//	case 1:
+	//		for (size_t i = 0; i < this->length - 1; i++) {
+	//			if (array[i] > array[i + 1]) {
+	//				return false;
+	//			}
+	//		};
+
+	//	}
+	//	return true;
+	//}
+
+	/////Метод поиска
+	/////Вызывает метод бинарного поиска, если массив отсортирован, последовательного, если не отсортирован
+	//long long find(T find) const {
+	//	if (is_sorted()) {
+	//		return bin_find(length, 0, find);
+	//	}
+	//	else {
+	//		return seq_find(find);
+	//	}
+	//}
+	/////Метод сортировки
+	/////Вызывает функцию сортировки слиянием, если в массиве более 10'000'000 элементов
+	//void sorting() {
+	//	if (this->length > 10'000'000) {
+	//		MergeSort(this->array, 0, this->length);
+	//	}
+	//	else {
+	//		quicksort(this->array, 0, this->length - 1);
+	//	}
+	//}
