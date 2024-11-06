@@ -35,7 +35,7 @@ int main() {
     cout << dsa.conclusion_index(5) << endl;
 
     cout << "Выводим массив int : " << endl;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < S; i++) {
 
         cout << dsa.conclusion_int(i) << " ";
     };
@@ -67,12 +67,12 @@ int main() {
     dsa.add_back("da");
     dsa.conclusion();
     cout << "Добавляем элемент в начало : " << endl;
-    dsa.add_up("dad");
+    //dsa.add_up("dad");
     dsa.conclusion();
     cout << "Удаляем элемент в всередине по индексу 2" << endl;
     cout << "А затем добавляем новый элемент 13 по индексу 2: " << endl;
-    dsa.del_Index(2);
-    dsa.add_index("dad", 2);
+    //dsa.del_Index(2);
+    //dsa.add_index("dad", 2);
     dsa.conclusion();
 
 
