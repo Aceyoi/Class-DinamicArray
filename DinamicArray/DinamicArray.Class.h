@@ -10,7 +10,7 @@ using namespace std;
 //Шаблонный класс динамического массива
 template <typename T>
 class DynamicArray {
-private:
+private: // Поля класса 
 	T* array;         // Указатель на элементтв массиве
 	size_t capacity; // Емкость массива
 	size_t length;  // Текущий размер массива
@@ -31,7 +31,7 @@ public:
 	//Конструктор без параметров
 	DynamicArray() {
 		this->length = 0;
-		this->array = new T;
+		this->array = new T;// Выделяет место под один элемент 
 		this->capacity = 1;
 	}
 
@@ -71,17 +71,22 @@ public:
 	};
 
 	//Метод вывода последнего элемента динамического массива 
-	int conclusion_back() {
+	T conclusion_back() {
 		return array[length-1];
 	};
 
 	//Метод вывода первого элемента динамического массива 
-	int conclusion_up() {
+	T conclusion_up() {
 		return array[0];
 	};
 
+	//Метод вывода элемента динамического массива //Нужно для вывода массива в int
+	T conclusion_int(int i) {
+		return array[i];
+	};
+
 	//Метод вывода первого элемента динамического массива 
-	int conclusion_index(size_t pos) {
+	T conclusion_index(size_t pos) {
 		return array[pos-1];
 	};
 

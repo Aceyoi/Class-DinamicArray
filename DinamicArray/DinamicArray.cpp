@@ -12,14 +12,86 @@ int main() {
 
     testcheck();
 
-    vector<int> array = { 66,84,5,56,1,32,7,65 }; // Создание векторногго массива
+    vector<int> array = { 66,84,5,56,1,32,7,65 }; // Создание интового векторногго массива
+    vector<string> arraystring = {"cab","c","b","abc","aaa","a"};// Создание стрингового векторногго массива
+
     size_t N = array.size();                     // Приравнивание N к размеру массива для удобного изменения
+    size_t S = arraystring.size();
     //size_t N = 5;
 
     //DynamicArray<int> dynarray;           // конструктор без параметров
     //DynamicArray<int> dynarray(N);       //конструктор с одним параметром
-    DynamicArray<int> dynarray(N, array); //конструктор с двумя параметрами
+    DynamicArray<int> dynarray(N, array); //конструктор с двумя параметрами int
+    DynamicArray<string> dsa(S, arraystring); //конструктор с двумя параметрами string
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////        STRING
+    cout << "Выводим созданный массив : " << endl;
+    dsa.conclusion();
+    cout << "Выводим первый элемент созданный массив : " << endl;
+    cout << dsa.conclusion_up() << endl;
+    cout << "Выводим последний элемент созданный массив : " << endl;
+    cout << dsa.conclusion_back() << endl;
+    cout << "Выводим элемент массива по индексу 5 : " << endl;
+    cout << dsa.conclusion_index(5) << endl;
+
+    cout << "Выводим массив int : " << endl;
+    for (int i = 0; i < N; i++) {
+
+        cout << dsa.conclusion_int(i) << " ";
+    };
+
+    //cout << endl << "Выводим число 56 с помощью бинарного поиска" << endl;
+    //cout << dsa.search_bin(56) << endl;
+    //cout << "Так же выводим его индекс" << endl;
+    //cout << dsa.search_bin_index(56) << endl;
+    //dsa.sort_quick(); // Сортировка для интерполяционного поиска
+    //cout << "Выводим число 56 с помощью интерполяционного поиска" << endl;
+    //cout << dsa.search_interpolation(56) << endl;
+    //cout << "Так же выводим его индекс" << endl;
+    //cout << dsa.search_interpolation_index(56) << endl;
+
+    cout << "Удаляем последний элемент в массиве : " << endl;
+    dsa.del_back();
+    dsa.conclusion();
+    cout << "Удаляем первый элемент в массиве : " << endl;
+    dsa.del_up();
+    dsa.conclusion();
+    //cout << "Удаляем элемент : " << endl;
+    //dsa.del(5);
+    //dsa.conclusion();
+    cout << "Удаляем массив полность затем добавляем элемент в конец : " << endl;
+    dsa.clear();
+    dsa.add_back("d");
+    dsa.conclusion();
+    cout << "Проверяем, что элемент добаляется в конец : " << endl;
+    dsa.add_back("da");
+    dsa.conclusion();
+    cout << "Добавляем элемент в начало : " << endl;
+    dsa.add_up("dad");
+    dsa.conclusion();
+    cout << "Удаляем элемент в всередине по индексу 2" << endl;
+    cout << "А затем добавляем новый элемент 13 по индексу 2: " << endl;
+    dsa.del_Index(2);
+    dsa.add_index("dad", 2);
+    dsa.conclusion();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////        INT
     cout << "Выводим созданный массив : " << endl;
     dynarray.conclusion();
     cout << "Выводим первый элемент созданный массив : " << endl;
@@ -29,7 +101,13 @@ int main() {
     cout << "Выводим элемент массива по индексу 5 : " << endl;
     cout << dynarray.conclusion_index(5) << endl;
 
-    cout << "Выводим число 56 с помощью бинарного поиска" << endl;
+    cout << "Выводим массив int : " << endl;
+    for (int i = 0; i < N; i++) {
+
+        cout << dynarray.conclusion_int(i) << " ";
+    };
+
+    cout << endl << "Выводим число 56 с помощью бинарного поиска" << endl;
     cout << dynarray.search_bin(56) << endl;
     cout << "Так же выводим его индекс" << endl;
     cout << dynarray.search_bin_index(56) << endl;
