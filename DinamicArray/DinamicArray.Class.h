@@ -10,7 +10,7 @@ using namespace std;
 //Шаблонный класс динамического массива
 template <typename T>
 class DynamicArray {
-private: // Поля класса 
+public: // Поля класса 
 	T* array;         // Указатель на элементтв массиве
 	size_t capacity; // Емкость массива
 	size_t length;  // Текущий размер массива
@@ -216,14 +216,6 @@ public:
 			};
 		}
 		return false;
-		//if (array[1] > array[2]) {
-		//	for (size_t i = 0; i < this->length - 1; i++) {
-		//		if (array[i] > array[i + 1]) {
-		//			return true;
-		//		}
-		//	};
-		//}
-		//return false;
 	}
 	
 	//Метод сортировки слиянием в динамическом массиве

@@ -9,8 +9,8 @@ using namespace std;
 
 void testcheck() {
 
-    vector<int> TestArray = { 65,84,5,56,1,32,7,65 };
-    DynamicArray<int> testdynarray(TestArray.size(), TestArray);
+        vector<int> TestArray = { 65,84,5,56,1,32,7,65 };
+        DynamicArray<int> testdynarray(TestArray.size(), TestArray);
 
     vector<int> array1 = { 1,2,3,4,5 };
     DynamicArray<int> dynarray1(array1.size(), array1);
@@ -42,6 +42,7 @@ void testcheck() {
     assert(testdynarray.searchcheck(13) == true);
     assert(testdynarray.searchcheck(25) == false);
     assert(testdynarray.nullcheck() == false);
+    testdynarray.clear();
 
     DynamicArray<int> TestArrayMerge(TestArray.size(), TestArray);
     DynamicArray<int> TestArrayQuick(TestArray.size(), TestArray);
@@ -75,6 +76,22 @@ void testcheck() {
     assert(TestArrayQuick.search_interpolation(100) == -1);
     assert(TestArrayQuick.search_interpolation_index(100) == -1);
 
+    vector<string> arraystringtest = { "cab","c","b","abc","aaa","a" };
+    DynamicArray<string> dynarraystringtest(arraystringtest.size(), arraystringtest);
 
+    assert(dynarraystringtest.conclusion_up()== "cab");
+    assert(dynarraystringtest.conclusion_back() == "a");
+    assert(dynarraystringtest.conclusion_index(5) == "aaa");
+    dynarraystringtest.del_back();
+    dynarraystringtest.del_up();
+    assert(dynarraystringtest.conclusion_up() == "c");
+    assert(dynarraystringtest.conclusion_back() == "aaa");
+    dynarraystringtest.clear();
+    assert(dynarraystringtest.nullcheck() == true);  
 
+    //testdynarray.~DynamicArray();
+    //dynarray1.~DynamicArray();
+    //dynarray2.~DynamicArray();
+    //testarraylol.~DynamicArray();
+    //dynarraystringtest.~DynamicArray();
 }

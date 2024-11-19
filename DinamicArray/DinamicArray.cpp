@@ -24,7 +24,7 @@ int main() {
     DynamicArray<int> dynarray(N, array); //конструктор с двумя параметрами int
     DynamicArray<string> dsa(S, arraystring); //конструктор с двумя параметрами string
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////        STRING
+    cout << "///////////////////////////////////////// STRING Array ////////////////////////////////////////////////////// " << endl;
     cout << "Выводим созданный массив : " << endl;
     dsa.conclusion();
     cout << "Выводим первый элемент созданный массив : " << endl;
@@ -34,7 +34,7 @@ int main() {
     cout << "Выводим элемент массива по индексу 5 : " << endl;
     cout << dsa.conclusion_index(5) << endl;
 
-    cout << "Выводим массив int : " << endl;
+    cout << "Выводим массив string : " << endl;
     for (int i = 0; i < S; i++) {
 
         cout << dsa.conclusion_int(i) << " ";
@@ -50,7 +50,7 @@ int main() {
     //cout << "Так же выводим его индекс" << endl;
     //cout << dsa.search_interpolation_index(56) << endl;
 
-    cout << "Удаляем последний элемент в массиве : " << endl;
+    cout << endl << "Удаляем последний элемент в массиве : " << endl;
     dsa.del_back();
     dsa.conclusion();
     cout << "Удаляем первый элемент в массиве : " << endl;
@@ -63,35 +63,19 @@ int main() {
     dsa.clear();
     dsa.add_back("d");
     dsa.conclusion();
-    cout << "Проверяем, что элемент добаляется в конец : " << endl;
-    dsa.add_back("da");
-    dsa.conclusion();
-    cout << "Добавляем элемент в начало : " << endl;
+    //cout << "Проверяем, что элемент добаляется в конец : " << endl;
+    //dsa.add_back("da");
+    //dsa.conclusion();
+    //cout << "Добавляем элемент в начало : " << endl;
     //dsa.add_up("dad");
-    dsa.conclusion();
-    cout << "Удаляем элемент в всередине по индексу 2" << endl;
-    cout << "А затем добавляем новый элемент 13 по индексу 2: " << endl;
+    //dsa.conclusion();
+    //cout << "Удаляем элемент в всередине по индексу 2" << endl;
+    //cout << "А затем добавляем новый элемент 13 по индексу 2: " << endl;
     //dsa.del_Index(2);
     //dsa.add_index("dad", 2);
-    dsa.conclusion();
+    //dsa.conclusion();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////        INT
+    cout << "///////////////////////////////////////// INT Array ////////////////////////////////////////////////////// " << endl;
     cout << "Выводим созданный массив : " << endl;
     dynarray.conclusion();
     cout << "Выводим первый элемент созданный массив : " << endl;
